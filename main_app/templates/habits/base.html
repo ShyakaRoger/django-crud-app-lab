@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Habit Tracker</title>
+  {% load static %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+</head>
+<body>
+  <header>
+    <nav>
+    <a class="nav-title" href="{% url 'home' %}">Habit Tracker</a>
+    <div class="nav-links">
+      <a href="{% url 'habit_index' %}">Habits</a>
+      <a href="{% url 'habit_create' %}">Add</a>
+      <a href="{% url 'about' %}">About</a>
+    </div>
+    </nav>
+  </header>
+
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

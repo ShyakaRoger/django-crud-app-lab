@@ -1,0 +1,10 @@
+{% extends 'habits/base.html' %}
+
+{% block content %}
+  <h2>Delete "{{ habit.name }}"?</h2>
+  <form method="POST">
+    {% csrf_token %}
+    <button type="submit">Confirm Delete</button>
+    <a href="{% url 'habit_detail' habit.id %}">Cancel</a>
+  </form>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'habits/base.html' %}
+
+{% block content %}
+  <h2>{{ habit.name }}</h2>
+  <p><strong>Description:</strong> {{ habit.description }}</p>
+  <p><strong>Frequency:</strong> {{ habit.get_frequency_display }}</p>
+  <p><strong>Target:</strong> {{ habit.target }}</p>
+
+  <a href="{% url 'habit_update' habit.id %}">Edit</a> |
+  <a href="{% url 'habit_delete' habit.id %}">Delete</a>
+
+  <h3>Daily Records</h3>
+  <form method="POST" action="{% url 'add_record' habit.id %}">
+    {% csrf_token %}
+    {{ record_form.as_p }}
+    <button type="submit">Add Record</button>
+  </form>
+
+  <ul>
+    {% for record in habit.dailyrecord_set.all %}
+      <li>{{ record.date }} - {% if record.completed %} ✅ {% else %} ❌ {% endif %} - {{ record.notes }}</li>
+    {% empty %}
+      <li>No records yet.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

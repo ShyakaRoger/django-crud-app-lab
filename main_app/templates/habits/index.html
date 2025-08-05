@@ -1,0 +1,16 @@
+{% extends 'habits/base.html' %}
+
+{% block content %}
+  <h2>My Habits</h2>
+  <ul>
+    {% for habit in habits %}
+      <li>
+        <a href="{% url 'habit_detail' habit.id %}">
+          {{ habit.name }} ({{ habit.get_frequency_display }})
+        </a>
+      </li>
+    {% empty %}
+      <li>No habits yet.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
