@@ -18,7 +18,12 @@
 
   <ul>
     {% for record in habit.dailyrecord_set.all %}
-      <li>{{ record.date }} - {% if record.completed %} ✅ {% else %} ❌ {% endif %} - {{ record.notes }}</li>
+      <li>
+        {{ record.date }}
+        {% if record.completed %} ✅ 
+        {% else %} ❌ {% endif %}  
+        {{ record.notes }}
+      </li>
     {% empty %}
       <li>No records yet.</li>
     {% endfor %}

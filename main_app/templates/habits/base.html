@@ -10,7 +10,7 @@
 <body>
   <header>
     <nav>
-    <a class="nav-title" href="{% url 'home' %}">Habit Tracker</a>
+    <a class="nav-title" href="{% url 'home' %}">HabitTracker</a>
     <div class="nav-links">
       <a href="{% url 'habit_index' %}">Habits</a>
       <a href="{% url 'habit_create' %}">Add</a>
@@ -18,10 +18,10 @@
     </div>
     </nav>
   </header>
-
-
+  
   <main>
-    {% block content %}{% endblock %}
+    {% block content %}
+    {% endblock %}
   </main>
 </body>
 </html>
